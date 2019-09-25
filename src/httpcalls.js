@@ -7,7 +7,7 @@ export function getUser() {
 }
 
 export function deleteUser(id){
-        return axios.post(`${BASE_URL}/api/users/delete/${id}`)
+        return axios.post(`${BASE_URL}/users/delete/${id}`)
                 .then(response => response.data)
                 .catch(err => Promise.reject(err.message));
 }

@@ -40,8 +40,9 @@ router.post('/', (req, res, next) => {
     })
 })
 
-router.post('/api/users/delete/:id', (req,res) => {
-    Note.findByIdAndRemove(req.params.id, (err) => {
+router.post('/delete/:id', (req,res) => {
+  console.log(req.params.id)
+    User.findByIdAndRemove(req.params.id, (err) => {
       if (err) return res.status(404).send({message: err.message})
       return res.send({ message: 'user deleted!' })
     });
