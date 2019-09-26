@@ -19,33 +19,18 @@ router.get('/', (req, res, next) => {
     })
 })
 
-router.post('/', (req, res, next) => {
-    const user = new User(
-        {
-            _id: mongoose.Types.ObjectId(),
-            name: req.body.name,
-            username: req.body.username,
-            password: req.body.password
-        }
-    )
-    user
-    .save()
-    .then(result => {
-        console.log(result)
-    })
-    .catch(err => console.log(err))
-    res.status(201).json({
-        message: 'Handling POST request to /users',
-        createdUser: user
-    })
+router.get('/:id', (req, res, next) => {
+  User.findById(req.params.id, (err) => {
+    if (err) return res.status(404).send({message: err.message})
+    return res.send({ message: 'User with id: '+ req.params.id + ' found!' })
+  })
 })
 
-router.post('/delete/:id', (req,res) => {
-  console.log(req.params.id)
-    User.findByIdAndRemove(req.params.id, (err) => {
-      if (err) return res.status(404).send({message: err.message})
-      return res.send({ message: 'user deleted!' })
-    });
-  });
+router.delete('/:id', (req, res) => {
+  User.findByIdAndDelete(req.params.id, (err) => {
+    if (err) return res.status(404).send({message: err.message})
+    return res.send({ message: 'User with id: '+ req.params.id + ' deleted!' })
+  })
+})
 
 module.exports = router;

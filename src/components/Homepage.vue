@@ -1,17 +1,17 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h3>Installed CLI Plugins</h3>
+    <h3>Welcome to my first web-app!</h3>
     <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
+      <li><a href="https://github.com/kothemel/vue-js-app" target="_blank" rel="noopener">Updated code</a></li>
+      <li><a href="https://www.linkedin.com/in/kothemel/" target="_blank" rel="noopener">About me</a></li>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Homepage',
   props: {
     msg: String
   }

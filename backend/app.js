@@ -4,6 +4,8 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const usersRoutes = require("./api/routes/users");
+const loggedUserRoutes = require("./api/routes/logged")
+
 mongoose.connect(
     "mongodb://localhost:27017/users",
     {
@@ -30,6 +32,7 @@ app.use((req, res, next) => {
 
 // Routes which should handle requests
 app.use("/users", usersRoutes);
+app.use("/logged", loggedUserRoutes);
 
 app.use((req, res, next) => {
   const error = new Error("Not found");

@@ -1,28 +1,17 @@
 <template>
 
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <LogInForm @userLogInfo="setName"/>
-    <p id="newUser"></p>
+    <img src="./assets/logo.png"><br>
+    <router-link to="/">Home</router-link><br><br>
+    <router-link to="user">User</router-link><br><br>
+    <router-link to="login">Log in</router-link><br><br>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import LogInForm from './components/LogInForm.vue'
-
 export default {
   name: 'app',
-  components: {
-    HelloWorld,
-    LogInForm
-  },
-  methods: {
-    setName(param1, param2){
-      document.getElementById("newUser").innerHTML = "New user " + param1 + " with username: " + param2
-    }
-  }
 }
 </script>
 

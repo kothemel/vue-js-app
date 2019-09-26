@@ -1,15 +1,20 @@
 import axios from 'axios';
 const BASE_URL = 'http://localhost:3000';
 
-export function getUser() {
+export function getAllUsers() {
         return axios.get(`${BASE_URL}/users`)
                 .then(response => response.data);
 }
 
-export function deleteUser(id){
-        return axios.post(`${BASE_URL}/users/delete/${id}`)
+export function getUserById(id) {
+        return axios.get(`${BASE_URL}/users/${id}`)
                 .then(response => response.data)
-                .catch(err => Promise.reject(err.message));
+                .catch(err => Promise.reject(err.message))
+}
+export function deleteUserById(id){
+        return axios.delete(`${BASE_URL}/users/${id}`)
+                .then(response => response.data)
+                .catch(err => Promise.reject(err.message))
 }
 export function createUser(data) {
         return axios.post(`${BASE_URL}/users`, 
